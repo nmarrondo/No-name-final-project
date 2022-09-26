@@ -1,9 +1,11 @@
 # No-name-final-project
 
 
+
 ## Concepto
 
-**Programar una APP que facilite el comercio de proximidad**, creando una comunidad que ponga en contacto al cliente con pequeños y medianos productores.
+Programar una APP que facilite el comercio de proximidad, creando una plataforma que ponga en contacto al cliente con pequeños y medianos productores.
+
 
 
 ## Resumen del desarrollo
