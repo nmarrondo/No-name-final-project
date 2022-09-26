@@ -1,8 +1,12 @@
 # No-name-final-project
 
-Programar una APP que facilite el comercio de proximidad, creando una comunidad que ponga en contacto al cliente con pequeños y medianos productores.
 
-RESUMEN DEL DESARROLLO
+## Concepto
+
+**Programar una APP que facilite el comercio de proximidad**, creando una comunidad que ponga en contacto al cliente con pequeños y medianos productores.
+
+
+## Resumen del desarrollo
 
 Crear un CRUD que permita subir y editar datos (productos) desde un perfil productor, y llamarlos y editarlos desde un perfil cliente.
 
