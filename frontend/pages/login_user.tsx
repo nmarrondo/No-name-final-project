@@ -2,7 +2,7 @@ import tw from "twin.macro"
 
 const Page = () => {
   return(
-    <div></div>
+    <div>login user</div>
   )
 }
 

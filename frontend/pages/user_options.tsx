@@ -1,0 +1,46 @@
+import tw from "twin.macro"
+import { RegisterProductForm } from "../components/forms/RegisterProductForm";
+import { ReturnButton } from "../components/shared/ReturnButton";
+import { UserOptionsButton } from "../components/shared/UserOptionsButton";
+import { useUser } from "@auth0/nextjs-auth0"
+import { NavBar } from "../components/NavBar";
+
+
+const Page = () => {
+
+  const {user} = useUser()
+
+  return(
+  <>
+    <div tw="bg-gray-200 h-[160px]">
+      <div tw="w-10/12 flex flex-col justify-between mx-auto gap-10 overflow-hidden">
+        <div>
+          <NavBar mode="backNav" /> 
+        </div>
+        <div>
+          <p tw="pt-[30px]">Hola {user.name}</p>
+        </div>
+      </div>
+    </div>
+
+    <div tw="h-full">
+        <div tw="flex flex-col gap-4 py-[30px] w-10/12 mx-auto">
+          <UserOptionsButton href="/user_options_user">Información de usuario</UserOptionsButton>
+          <UserOptionsButton href="">Información de pedidos</UserOptionsButton>
+        </div>
+        <div tw="h-[4px] w-[400px] bg-gray-200"></div>
+        <div tw="flex flex-col gap-4 py-[30px] w-10/12 mx-auto">
+          <UserOptionsButton href="/user_options_preguntas">Preguntas</UserOptionsButton>
+          <UserOptionsButton href="">Notificaciones</UserOptionsButton>
+          <UserOptionsButton href="/api/auth/logout">Cerrar sesión</UserOptionsButton>
+        </div>
+        <div tw="w-10/12 flex justify-end mx-auto">
+          <p>v.prealpha</p>
+        </div>
+    </div>
+
+  </>
+  )
+}
+
+export default Page;

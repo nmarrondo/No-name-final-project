@@ -11,11 +11,11 @@ export const create_product:FastifyPluginAsync = async (app) => {
     const doc = await ProductModel.create({
       // producer: data.producer,
       name: data.name,
-      description: data.description,
-      expiration: data.expiration,
-      quantity: data.quantity,
-      price: data.price,
-      buyer: data.buyer,
+      // description: data.description,
+      // expiration: data.expiration,
+      // quantity: data.quantity,
+      // price: data.price,
+      // buyer: data.buyer,
     })
 
     return doc

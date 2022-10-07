@@ -1,8 +1,14 @@
+/** @type {import('tailwindcss').Config} */
+
 module.exports = {
   theme: {
     extend: {
       colors: {
-        'orange': 'rgb(241 245 249)',
+        brand: { 
+          100: '',
+          500: '',
+          800: '',
+        },
       },
       spacing: {
         
