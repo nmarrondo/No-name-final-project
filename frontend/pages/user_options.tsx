@@ -25,12 +25,12 @@ const Page = () => {
 
     <div tw="h-full">
         <div tw="flex flex-col gap-4 py-[30px] w-10/12 mx-auto">
-          <UserOptionsButton href="/user_options_user">Información de usuario</UserOptionsButton>
+          <UserOptionsButton href="/user_options/user">Información de usuario</UserOptionsButton>
           <UserOptionsButton href="">Información de pedidos</UserOptionsButton>
         </div>
         <div tw="h-[4px] w-[400px] bg-gray-200"></div>
         <div tw="flex flex-col gap-4 py-[30px] w-10/12 mx-auto">
-          <UserOptionsButton href="/user_options_preguntas">Preguntas</UserOptionsButton>
+          <UserOptionsButton href="/user_options/preguntas">Preguntas</UserOptionsButton>
           <UserOptionsButton href="">Notificaciones</UserOptionsButton>
           <UserOptionsButton href="/api/auth/logout">Cerrar sesión</UserOptionsButton>
         </div>

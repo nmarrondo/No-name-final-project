@@ -1,8 +1,8 @@
 import tw from "twin.macro"
-import { RegisterProductForm } from "../components/forms/RegisterProductForm";
-import { NavBar } from "../components/NavBar";
-import { ReturnButton } from "../components/shared/ReturnButton";
-import { UserOptionsButton } from "../components/shared/UserOptionsButton";
+import { RegisterProductForm } from "../../components/forms/RegisterProductForm";
+import { NavBar } from "../../components/NavBar";
+import { ReturnButton } from "../../components/shared/ReturnButton";
+import { UserOptionsButton } from "../../components/shared/UserOptionsButton";
 
 const Page = () => {
 

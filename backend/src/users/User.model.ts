@@ -2,37 +2,43 @@ import { model, Schema, Document } from "mongoose";
 
 export interface UserDocument extends Document {
 
-  // shared props
+  role: "client" | "producer";
+
   name: string;
-  mail: string;
+  mail?: string;
+
+  ca?: string;
+
   telephone: string;
-  // creditCard?: string; // save as ********0987 
-  // location?: string;
-  // orders?: string[]; // push the carts info
-  // role: "client" | "producer";
-  // user_id: string; // add the user id to the product
+  account?: string; // save as ********0987 
+  numberEA?: string;
+
+  description?: string;
   
+  location?: string;
+  orders?: string[]; // push the carts info
+  // user_id: string; // add the user id to the product
 
 
-  // // producres specific props
-  // ca?: string;
-  // numberEA?: string;
-  // description?: string;
 
 }
 
 const schema = new Schema ({
+  role: { type:String, required:true },
 
   name: { type:String, required:true },
-  mail: { type:String, required:true },
+  mail: { type:String},
+
+  ca: { type:String},
+
   telephone: { type:String, required:true },
-  // creditCard: { type:String }, 
-  // location: { type:String },
-  // orders: [{ type:String }], 
-  // ca: { type:String},
-  // numberEA: { type:String},
-  // description: {type:String},
-  // role: { type:String, required:true },
+  account: { type:String }, 
+  numberEA: { type:String},
+
+  description: {type:String},
+
+  location: { type:String },
+  orders: [{ type:String }], 
   // user_id: {type:String, required:true },
 
 

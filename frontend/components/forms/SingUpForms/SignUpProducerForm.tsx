@@ -3,83 +3,140 @@ import React from "react"
 import { Button } from "../../shared/Button";
 import { useForm, Resolver } from 'react-hook-form';
 import { useState } from "react";
+import { Input } from "../form_widgets/Input";
+import { useUser } from "../../../hooks/useUser";
 
 export const SignUpProducerForm = () => {
   const [stage, setStage] = useState('stage1');
 
-  const methods = useForm({defaultValues:{status:'producer',first_name:'',field2:'',field3:''}}) // poner los formularios en dos componentes diferentes(user/prucer, y asignarle un default value a cada uno)
+  const methods = useForm({
+    mode: "onChange",
+    defaultValues:{role:'producer',name:'',password:'',ca:'',telephone:'',account:'', numberEA:'', description:''}
+  }) // poner los formularios en dos componentes diferentes(user/prucer, y asignarle un default value a cada uno)
 
-  const handle_submit = methods.handleSubmit(async(data)=>{
-    console.log("submit")
-    console.log(data)
-  })
+  const { create_user } = useUser()
 
   const { formState } = methods
   console.log(formState.errors)
 
+  const handle_submit = methods.handleSubmit(async(data)=>{
+    console.log("User updated")
+    console.log(data)
+    await create_user(data)
+    console.log("user created")
+  })
 
   return(
-    <div>
+    <>
       { stage === 'stage1' && (
-      <>
-        <h2>Sign up form</h2>
-        <div tw="flex flex-col gap-5">
-          <div>
-            <label htmlFor="name" />
-            <input 
-                tw="bg-gray-200" 
-                name="name"
-                type="text" 
-                {...methods.register("first_name", {required:true})}
-              />
-          </div>
-          <div>
-            <label htmlFor="password" />
-            <input 
-                tw="bg-gray-200" 
-                name="field2"
-                type="text" 
-                {...methods.register("field2", {required:true})}
-              />
-          </div>
-
-          <div>
-            <Button 
-              onClick={() =>setStage('stage2')}
-            >
-              {formState.isValid?  'siguiente':'complete los campos'}
-            </Button>
-          </div>
-        </div>
-      </>
-      )}
-
-      { stage === 'stage2' && (
         <>
-          <h2>Sign up form</h2>
-          <div tw="flex flex-col gap-5">
-            <div>
-              <label htmlFor="other" />
-              <input 
-                  tw="bg-gray-200" 
-                  name="field3"
-                  type="text" 
-                  {...methods.register("field3", {required:true})}
-                />
-            </div>
-
-            <div>
-              <Button 
-                onClick={() => handle_submit()}
-              >
-                {formState.isValid?  'enviar':'complete los campos'}
-              </Button>
-            </div>
+        <div tw="h-[75%]">
+          <div tw="flex flex-col gap-4 mt-[180px]">
+            <Input 
+              label="nombre"
+              error={formState.errors.name?.message.toString()}
+              {...methods.register("name",{
+                required: true,
+                minLength: { value:3, message: "Longitud mínima 3"},
+              })}
+            />
+            <Input 
+              label="contraseña"
+              error={formState.errors.password?.message.toString()}
+              {...methods.register("password",{
+                required: true,
+              })}
+            />
           </div>
+        </div>  
+        <div>
+          <Button onClick={() =>setStage('stage2')}>
+            {formState.isValid?  'siguiente':'complete los campos'}
+          </Button>
+        </div>
         </>
       )}
 
-    </div>
+
+{ stage === 'stage2' && (
+        <>
+        <div tw="h-[75%]">
+          <div tw="flex flex-col gap-4 mt-[180px]">
+            <p>texto</p>
+            <Input 
+              label="Comunidad Autonoma"
+              error={formState.errors.ca?.message.toString()}
+              {...methods.register("ca",{
+                required: true,
+              })}
+            />
+          </div>
+        </div>  
+        <div>
+          <Button onClick={() =>setStage('stage3')}>
+            {formState.isValid?  'siguiente':'complete los campos'}
+          </Button>
+        </div>
+        </>
+      )}
+
+{ stage === 'stage3' && (
+        <>
+        <div tw="h-[75%]">
+          <div tw="flex flex-col gap-4 mt-[120px]">
+            <Input 
+              label="telefono"
+              error={formState.errors.telephone?.message.toString()}
+              {...methods.register("telephone",{
+                required: true,
+                minLength: { value:3, message: "Longitud mínima 3"},
+              })}
+            />
+            <Input 
+              label="numero de cuenta"
+              error={formState.errors.account?.message.toString()}
+              {...methods.register("account",{
+                required: true,
+              })}
+            />
+            <Input 
+              label="numero en el registro de explotaciones agricolas"
+              error={formState.errors.numberEA?.message.toString()}
+              {...methods.register("numberEA",{
+                required: true,
+              })}
+            />
+          </div>
+        </div>  
+        <div>
+          <Button onClick={() =>setStage('stage4')}>
+            {formState.isValid?  'siguiente':'complete los campos'}
+          </Button>
+        </div>
+        </>
+      )}
+
+{ stage === 'stage4' && (
+        <>
+        <div tw="h-[75%]">
+          <div tw="flex flex-col gap-4 mt-[180px]">
+            <Input 
+              label="descripcion"
+              error={formState.errors.description?.message.toString()}
+              {...methods.register("description",{
+                required: true,
+              })}
+            />
+          </div>
+        </div>  
+        <div>
+          <Button onClick={() => handle_submit()}>
+            {formState.isValid?  'finalizar':'complete los campos'}
+          </Button>
+        </div>
+        </>
+      )}
+    </>
   )
 }
 

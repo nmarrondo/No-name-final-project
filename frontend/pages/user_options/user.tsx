@@ -1,9 +1,7 @@
 import tw from "twin.macro"
-import { RegisterProductForm } from "../components/forms/RegisterProductForm";
-import { ReturnButton } from "../components/shared/ReturnButton";
-import { UserOptionsButton } from "../components/shared/UserOptionsButton";
+import { UserOptionsButton } from "../../components/shared/UserOptionsButton";
 import { useUser } from "@auth0/nextjs-auth0"
-import { NavBar } from "../components/NavBar";
+import { NavBar } from "../../components/NavBar";
 
 const Page = () => {
   const {user} = useUser()

@@ -14,7 +14,7 @@ const create_product = async (data): Promise<Product> => {
 }
 
 const delete_product = async (product_id:string) => {
-  const res = await fetch (`${BASE_URL}/the-good-shop.products/${product_id}`,{
+  const res = await fetch (`${BASE_URL}/products/${product_id}`,{
     method: "DELETE",
     headers: {
       "Content-Type": "application/json"

@@ -9,32 +9,23 @@ import { SignUpProducerForm } from "./SingUpForms/SignUpProducerForm";
 export const SignUpUserForm = () => {
   const [stage, setStage] = useState('none');
 
-  const methods = useForm()
-
-  const [name, setName] = useState("")
-
-
-  const { formState } = methods
-  console.log(formState.errors)
-
-
   return(
-    <div tw="h-full">
+    <>
       { stage === 'none' && (
-        <>
-          <div tw="flex flex-col gap-4 mt-[20px]">
+        <div tw="h-[75%] flex flex-col">
+          <div tw="flex flex-col gap-4 mt-[180px]">
             <Button onClick={() => setStage('client')}>Quiero comprar</Button>
             <Button onClick={() => setStage('producer')}>Quiero vender</Button>
           </div>
-        </>
+        </div>
       )}
 
 
       { stage === 'client' && (<SignUpClientForm />)}
 
       { stage === 'producer' && (<SignUpProducerForm />)}
-
-    </div>
+    </>
+    
   )
 }
 

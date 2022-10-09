@@ -9,13 +9,20 @@ export const create_user:FastifyPluginAsync = async (app) => {
     const data = req.body
 
     const doc = await UserModel.create({
-      // producer: data.producer,
+
+      role: data.role,
       name: data.name,
-      // description: data.description,
-      // expiration: data.expiration,
-      // quantity: data.quantity,
-      // price: data.price,
-      // buyer: data.buyer,
+      mail: data.mail,
+
+      ca:data.ca,
+      telephone:data.telephone,
+      account: data.account,
+      numberEA: data.numberEA,
+
+      description: data.description,
+
+      location: data.location,
+      orders: data.orders
     })
 
     return doc
