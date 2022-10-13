@@ -17,6 +17,7 @@ export interface UserDocument extends Document {
   
   location?: string;
   orders?: string[]; // push the carts info
+  user_id: string;
   // user_id: string; // add the user id to the product
 
 
@@ -40,6 +41,8 @@ const schema = new Schema ({
   location: { type:String },
   orders: [{ type:String }], 
   // user_id: {type:String, required:true },
+  user_id: { type:String },
+
 
 
 }, {timestamps: true})

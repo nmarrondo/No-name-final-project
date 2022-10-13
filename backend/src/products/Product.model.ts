@@ -10,7 +10,7 @@ export interface ProductDocument extends Document {
   description?: string; // description of the product, generate an automatic if it has not been filled
 
   // buyer: string[]; // who bought
-  // user_id: string; // add the user id to the product
+  user_id: string; // add the user id to the product
 
 }
 
@@ -23,7 +23,7 @@ const schema = new Schema ({
   expiration: { type:String, required:true},
   description: { type:String},
   // buyer: [{ type:String }],
-  // user_id: {type:String, required:true },
+  user_id: {type:String, required:true },
 
 }, {timestamps: true})
 

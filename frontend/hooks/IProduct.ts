@@ -5,4 +5,5 @@ export interface Product {
   price: string;
   expiration: string;
   description?: string;
+  user_id?: string;
 }

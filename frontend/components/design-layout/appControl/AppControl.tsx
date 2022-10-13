@@ -7,11 +7,11 @@ export const AppControl = () => {
   const { user } = useUser()
   return (
     <div>
-      <nav tw="flex w-[560px] h-[40px] mb-[20px] bg-white divide-x rounded-full overflow-hidden">
+      {/* <nav tw="flex w-[560px] h-[40px] mb-[20px] bg-white divide-x rounded-full overflow-hidden">
         <AppControlItem href="/">Button1</AppControlItem>
         <AppControlItem href="/shop">Button2</AppControlItem>
         <AppControlItem href="/product_upload">Button3</AppControlItem>
-      </nav>
+      </nav> */}
       {user && (
         <div><p>User logged: {user.name}</p></div>
       )}  

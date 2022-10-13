@@ -5,6 +5,7 @@ import { useForm, Resolver } from 'react-hook-form';
 import { useState } from "react";
 import { Input } from "../form_widgets/Input";
 import { useUser } from "../../../hooks/useUser";
+import { useRouter } from "next/router";
 
 export const SignUpProducerForm = () => {
   const [stage, setStage] = useState('stage1');
@@ -17,13 +18,12 @@ export const SignUpProducerForm = () => {
   const { create_user } = useUser()
 
   const { formState } = methods
-  console.log(formState.errors)
+
+  const router = useRouter()
 
   const handle_submit = methods.handleSubmit(async(data)=>{
-    console.log("User updated")
-    console.log(data)
     await create_user(data)
-    console.log("user created")
+    router.push("/")
   })
 
   return(

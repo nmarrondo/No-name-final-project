@@ -1,38 +1,67 @@
 import tw from "twin.macro"
-import { ButtonLink } from "../components/shared/ButtonLink"
+import { Button } from "../components/shared/Button"
 import { ReturnButton } from "../components/shared/ReturnButton"
 import { RegisterProductForm } from "../components/forms/RegisterProductForm"
 import { useUser } from "@auth0/nextjs-auth0"
 import { NavBar } from "../components/NavBar"
-
+import { Body } from "../components/shared/Body"
+import { Title, NoUserTitle } from "../components/shared/text"
+import useSWR from "swr"
+import qs from "querystring"
+import { User } from "../hooks/IUser"
 
 export default function Home() {
-  const {user} = useUser()
+  const { user } = useUser()
+
+  const { data: userProfile } = useSWR<User>(user?.sub ? `/users/id/${encodeURIComponent(user?.sub)}` : null, { refreshInterval: 5000 })
+
+  console.log(userProfile)
+
+
   return (
-    <div tw="h-full flex flex-col justify-between mx-auto gap-10 w-10/12 overflow-hidden">
+    <Body>
       {!user && (
         <div tw="h-full flex flex-col justify-center">
-          <div tw="flex flex-col justify-center mx-auto mb-[30px]">
-            <p>Bienvenido a The Good Shop</p>
+          <div tw="flex flex-col justify-center mx-auto pb-4">
+            <NoUserTitle>Bienvenido a The Good Shop</NoUserTitle>
           </div>
-          <div tw="flex flex-col gap-4">
-            <ButtonLink href="/register_user">Registrarme</ButtonLink>
-            <ButtonLink href="/api/auth/login">Ya tengo una cuenta</ButtonLink>
-            <ButtonLink href="/shop">Sólo quiero mirar</ButtonLink>
+          <div tw="flex flex-col gap-4 mb-[20px]">
+            <Button href="/api/auth/login">Entrar</Button>
+            <Button href="/shop/product_list">Sólo quiero mirar</Button>
           </div>
         </div>
       )}
-      {user && (
+
+      {user && userProfile && (
         <>
           <NavBar mode="mainNav" />
-          <div tw="h-full flex gap-3 flex-col justify-center pb-32">
-            <p tw="mx-auto pb-6">Hola {user.name}</p>
-            <ButtonLink href="/shop">Comprar</ButtonLink>
-            <ButtonLink href="/product_upload">Vender</ButtonLink>
-
+          <div tw="h-full flex flex-col justify-center">
+            <div tw="flex flex-col justify-center mx-auto pb-4">
+              <Title>{user.name}</Title>
+            </div>
+            <div tw="flex flex-col gap-4 z-10">
+              <Button href="/shop/product_list">Comprar</Button>
+              <Button href="/product_upload">Vender</Button>
+            </div>
+            <div tw="z-0 h-[160px] w-[160px] bg-brand-200 mt-[360px] ml-[80px] absolute rounded-full"></div>
           </div>
         </>
       )}
-    </div>
+
+      {user && !userProfile && (
+        <>
+          {/* <NavBar mode="mainNav" /> */}
+          <div tw="h-full flex flex-col justify-center">
+            <div tw="flex flex-col justify-center mx-auto pb-4">
+              <Title>{user.name}</Title>
+            </div>
+            <div tw="flex flex-col gap-4 z-10">
+              <Button href="/register_user">Completa tu perfil</Button>
+            </div>
+            <div tw="z-0 h-[160px] w-[160px] bg-brand-200 mt-[360px] ml-[80px] absolute rounded-full"></div>
+          </div>
+        </>
+      )}
+    </Body>
   )
 }

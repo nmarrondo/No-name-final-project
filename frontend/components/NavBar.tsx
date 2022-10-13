@@ -4,24 +4,8 @@ import { ProfileButton } from "./shared/ProfileButton"
 import { ReturnButton } from "./shared/ReturnButton"
 import { CartButton } from "./shared/CartButton"
 import { useUser } from "@auth0/nextjs-auth0"
+import { Localization } from "./shared/Localization"
 import Link from "next/link"
-
-
-export const OldNavBar = () => {
-  return(
-    <nav tw="flex flex-col gap-3">
-      <div tw="flex">
-        <ProfileButton />
-        <input tw="h-[36px] bg-gray-200" placeholder="Buscador"/>
-        <ProfileButton />
-        
-      </div>
-      <div>
-        <input tw="h-[36px] w-full bg-gray-200" placeholder="Localización"/>
-      </div>
-    </nav>
-  )
-}
 
 export const NavBar:React.FC<{
     mode: "mainNav" | "shopNav" | "productNav" | "backNav"
@@ -54,18 +38,18 @@ export const NavBar:React.FC<{
 
       {mainNav && (
         <>
-          <div tw="flex">
+          <div tw="absolute flex justify-between mt-8 w-10/12">
             <ProfileButton />
-            <input tw="h-[36px] w-full bg-gray-200" placeholder="Localización"/>
+            <Localization/>
           </div>
         </>
       )}
 
       {shopNav && !user && (
         <>
-          <div tw="flex">
+          <div tw="absolute flex justify-between mt-8 w-10/12">
             <ReturnButton />
-            <input tw="h-[36px] bg-gray-200" placeholder="Buscador"/>
+            <input tw="h-[36px] w-[190px] bg-gray-200" placeholder="Buscador"/>
           </div>
   
         </>
@@ -73,10 +57,10 @@ export const NavBar:React.FC<{
 
       {shopNav && user && (
         <>
-          <div tw="flex">
+          <div tw="absolute flex justify-between mt-8 w-10/12">
             <ReturnButton />
-            <input tw="h-[36px] bg-gray-200" placeholder="Buscador"/>
-            <CartButton />
+            <input tw="h-[36px] w-[190px] bg-gray-200" placeholder="Buscador"/>
+            {/* <CartButton /> */}
           </div>
   
         </>
@@ -84,7 +68,7 @@ export const NavBar:React.FC<{
 
       {productNav && !user && (
         <>
-          <div tw="flex justify-between">
+          <div tw="absolute flex mt-8 w-10/12">
             <ReturnButton />
           </div>
         </>
@@ -92,15 +76,15 @@ export const NavBar:React.FC<{
 
       {productNav && user && (
         <>
-          <div tw="flex justify-between">
+          <div tw="absolute flex mt-8 w-10/12">
             <ReturnButton />
-            <CartButton />
+            {/* <CartButton /> */}
           </div>
         </>
       )}
 
       {backNav && (
-        <div tw="flex">
+        <div tw="absolute mt-8">
           <ReturnButton />
         </div>
       )}

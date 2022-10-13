@@ -1,10 +1,10 @@
 import tw from "twin.macro"
-import { RegisterProductForm } from "../components/forms/RegisterProductForm";
-import { ReturnButton } from "../components/shared/ReturnButton";
-import { UserOptionsButton } from "../components/shared/UserOptionsButton";
+import { UserSectionButton } from "../components/user-section/UserSectionButton";
 import { useUser } from "@auth0/nextjs-auth0"
 import { NavBar } from "../components/NavBar";
-
+import { UserSectionTitle } from "../components/shared/text";
+import { UserSectionBody } from "../components/user-section/UserSectionBody";
+import { UserSectionLine } from "../components/user-section/UserSectionLine";
 
 const Page = () => {
 
@@ -12,30 +12,24 @@ const Page = () => {
 
   return(
   <>
-    <div tw="bg-gray-200 h-[160px]">
-      <div tw="w-10/12 flex flex-col justify-between mx-auto gap-10 overflow-hidden">
-        <div>
-          <NavBar mode="backNav" /> 
-        </div>
-        <div>
-          <p tw="pt-[30px]">Hola {user.name}</p>
-        </div>
-      </div>
-    </div>
+    <UserSectionBody>
+        <NavBar mode="backNav" /> 
+        <UserSectionTitle>¡Hola, {user.name}!</UserSectionTitle>
+    </UserSectionBody>
 
     <div tw="h-full">
-        <div tw="flex flex-col gap-4 py-[30px] w-10/12 mx-auto">
-          <UserOptionsButton href="/user_options/user">Información de usuario</UserOptionsButton>
-          <UserOptionsButton href="">Información de pedidos</UserOptionsButton>
+        <div tw="flex flex-col gap-2 py-[30px] w-10/12 mx-auto">
+          <UserSectionButton href="/user_options/user">Información de usuario</UserSectionButton>
+          <UserSectionButton href="">Información de pedidos</UserSectionButton>
         </div>
-        <div tw="h-[4px] w-[400px] bg-gray-200"></div>
-        <div tw="flex flex-col gap-4 py-[30px] w-10/12 mx-auto">
-          <UserOptionsButton href="/user_options/preguntas">Preguntas</UserOptionsButton>
-          <UserOptionsButton href="">Notificaciones</UserOptionsButton>
-          <UserOptionsButton href="/api/auth/logout">Cerrar sesión</UserOptionsButton>
+        <UserSectionLine />
+        <div tw="flex flex-col gap-2 py-[30px] w-10/12 mx-auto">
+          <UserSectionButton href="/user_options/preguntas">Preguntas</UserSectionButton>
+          <UserSectionButton href="">Notificaciones</UserSectionButton>
+          <UserSectionButton href="/api/auth/logout">Cerrar sesión</UserSectionButton>
         </div>
-        <div tw="w-10/12 flex justify-end mx-auto">
-          <p>v.prealpha</p>
+        <div tw="w-10/12 mt-[30px] flex justify-end mx-auto">
+          <p tw="text-sm text-dark-400">v.prealpha</p>
         </div>
     </div>
 

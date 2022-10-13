@@ -1,4 +1,5 @@
 export interface User {
+  _id: string;
   role: string;
   name: string;
   password: string;
@@ -8,4 +9,5 @@ export interface User {
   account: string;
   numberEA?: string;
   description?: string;
+  user_id?: string | undefined;
 }

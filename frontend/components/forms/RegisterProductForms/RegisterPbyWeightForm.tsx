@@ -19,10 +19,7 @@ export const RegisterPbyWeightForm = () => {
   console.log(formState.errors)
 
   const handle_submit = methods.handleSubmit(async(data)=>{
-    console.log("submit")
-    console.log(data)
     await create_product(data)
-    console.log("product created")
   })  
 
   return(  
