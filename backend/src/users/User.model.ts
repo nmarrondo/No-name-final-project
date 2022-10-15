@@ -10,41 +10,34 @@ export interface UserDocument extends Document {
   ca?: string;
 
   telephone: string;
-  account?: string; // save as ********0987 
   numberEA?: string;
 
   description?: string;
-  
-  location?: string;
+
   orders?: string[]; // push the carts info
   user_id: string;
-  // user_id: string; // add the user id to the product
-
-
 
 }
 
-const schema = new Schema ({
-  role: { type:String, required:true },
+const schema = new Schema({
 
-  name: { type:String, required:true },
-  mail: { type:String},
+  role: { type: String, required: true },
 
-  ca: { type:String},
+  name: { type: String, required: true },
+  mail: { type: String },
 
-  telephone: { type:String, required:true },
-  account: { type:String }, 
-  numberEA: { type:String},
+  ca: { type: String },
 
-  description: {type:String},
+  telephone: { type: String, required: true },
+  numberEA: { type: String },
 
-  location: { type:String },
-  orders: [{ type:String }], 
-  // user_id: {type:String, required:true },
-  user_id: { type:String },
+  description: { type: String },
+
+  orders: [{ type: String }],
+  user_id: { type: String },
 
 
 
-}, {timestamps: true})
+}, { timestamps: true })
 
 export const UserModel = model<UserDocument>("user", schema)

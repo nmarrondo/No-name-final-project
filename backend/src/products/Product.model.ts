@@ -1,31 +1,28 @@
 import { model, Schema, Document } from "mongoose";
 
 export interface ProductDocument extends Document {
-  
+
   // producer: string; // name of the producer who uploaded it
   name: string; // name of the product
   quantity: string; // quantity of product
   price: string; // price for kg
-  expiration: string; // date?
+  unit: string; // date?
   description?: string; // description of the product, generate an automatic if it has not been filled
-
-  // buyer: string[]; // who bought
   user_id: string; // add the user id to the product
 
 }
 
-const schema = new Schema ({
+const schema = new Schema({
 
   // producer: { type:String, required:true },
-  name: { type:String, required:true },
-  quantity: { type:String, required:true},
-  price: { type:String, required:true},
-  expiration: { type:String, required:true},
-  description: { type:String},
-  // buyer: [{ type:String }],
-  user_id: {type:String, required:true },
+  name: { type: String, required: true },
+  quantity: { type: String, required: true },
+  price: { type: String, required: true },
+  unit: { type: String, required: true },
+  description: { type: String },
+  user_id: { type: String },
 
-}, {timestamps: true})
+}, { timestamps: true })
 
 export const ProductModel = model<ProductDocument>("product", schema)
 

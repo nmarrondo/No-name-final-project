@@ -1,12 +1,12 @@
 import tw from "twin.macro";
-import { useUser } from "../../../hooks/useUser"; 
+import { useUserHook } from "../../../hooks/useUser";
 import { UserProfilePic } from "./user/UserProfileData";
 import { ButtonLink } from "../../shared/ButtonLink";
 
 export const ProductorShopCard = () => {
-  const { user } = useUser()
+  const { user } = useUserHook()
 
-  return(
+  return (
     <div key={user._id} tw="bg-gray-200">
       <ButtonLink href={`/shop/productor/${user._id}`}>
         {user.name}

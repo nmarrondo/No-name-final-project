@@ -3,7 +3,7 @@ import { Product } from "./IProduct";
 import { BASE_URL } from "../lib/config"
 
 const create_product = async (data): Promise<Product> => {
-  const res = await fetch(`/api/backend/products`, {
+  const res = await fetch(`${BASE_URL}/products`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -15,13 +15,13 @@ const create_product = async (data): Promise<Product> => {
 }
 
 const delete_product = async (product_id: string) => {
-  const res = await fetch(`/api/backend/products/${product_id}`, {
+  const res = await fetch(`${BASE_URL}/products/${product_id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json"
     }
   })
-  
+
   return res.json()
 }
 

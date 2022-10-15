@@ -1,7 +1,7 @@
 import tw from "twin.macro"
-import { ProductList } from "../../components/forms/ShopListItems/ProductList";
-import { ProductorList } from "../../components/forms/ShopListItems/ProductorList";
-import { NavBar } from "../../components/NavBar";
+import { ProductList } from "../components/forms/ShopListItems/ProductList";
+import { ProductorList } from "../components/forms/ShopListItems/ProductorList";
+import { NavBar } from "../components/NavBar";
 import { useState } from "react";
 
 
@@ -27,7 +27,7 @@ const Page = () => {
     <>
       <div tw="h-[128px] w-full">
         <div tw="h-full mx-auto gap-10 w-10/12 overflow-hidden">
-          <NavBar mode="shopNav" />
+          <NavBar mode="shopNav" href="/" />
           <div tw="h-[456px] mt-[76px]">
             <div tw="w-full h-[36px]flex justify-between relative">
               <div

@@ -7,7 +7,6 @@ import { NavBar } from "../components/NavBar"
 import { Body } from "../components/shared/Body"
 import { Title, NoUserTitle } from "../components/shared/text"
 import useSWR from "swr"
-import qs from "querystring"
 import { User } from "../hooks/IUser"
 
 export default function Home() {
@@ -27,25 +26,9 @@ export default function Home() {
           </div>
           <div tw="flex flex-col gap-4 mb-[20px]">
             <Button href="/api/auth/login">Entrar</Button>
-            <Button href="/shop/product_list">Sólo quiero mirar</Button>
+            <Button href="/shop">Sólo quiero mirar</Button>
           </div>
         </div>
-      )}
-
-      {user && userProfile && (
-        <>
-          <NavBar mode="mainNav" />
-          <div tw="h-full flex flex-col justify-center">
-            <div tw="flex flex-col justify-center mx-auto pb-4">
-              <Title>{user.name}</Title>
-            </div>
-            <div tw="flex flex-col gap-4 z-10">
-              <Button href="/shop/product_list">Comprar</Button>
-              <Button href="/product_upload">Vender</Button>
-            </div>
-            <div tw="z-0 h-[160px] w-[160px] bg-brand-200 mt-[360px] ml-[80px] absolute rounded-full"></div>
-          </div>
-        </>
       )}
 
       {user && !userProfile && (
@@ -53,10 +36,26 @@ export default function Home() {
           {/* <NavBar mode="mainNav" /> */}
           <div tw="h-full flex flex-col justify-center">
             <div tw="flex flex-col justify-center mx-auto pb-4">
-              <Title>{user.name}</Title>
+              <Title variant="noUserID">{user.name}</Title>
             </div>
             <div tw="flex flex-col gap-4 z-10">
               <Button href="/register_user">Completa tu perfil</Button>
+            </div>
+            <div tw="z-0 h-[160px] w-[160px] bg-brand-200 mt-[360px] ml-[80px] absolute rounded-full"></div>
+          </div>
+        </>
+      )}
+
+      {user && userProfile && (
+        <>
+          <NavBar mode="mainNav" />
+          <div tw="h-full flex flex-col justify-center">
+            <div tw="flex flex-col justify-center mx-auto pb-4">
+              <Title variant="userID">{user.name}</Title>
+            </div>
+            <div tw="flex flex-col gap-4 z-10">
+              <Button href="/shop">Comprar</Button>
+              <Button href="/register_product">Vender</Button>
             </div>
             <div tw="z-0 h-[160px] w-[160px] bg-brand-200 mt-[360px] ml-[80px] absolute rounded-full"></div>
           </div>

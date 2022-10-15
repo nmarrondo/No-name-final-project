@@ -34,7 +34,7 @@ export const UserContext = React.createContext<{
   options?: UserOptions
 }>({})
 
-export const useUser = (): {
+export const useUserHook = (): {
   user?: User
   allowDelete: boolean
   delete_user: () => void

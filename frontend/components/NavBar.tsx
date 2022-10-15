@@ -2,23 +2,24 @@ import tw from "twin.macro"
 import { Input } from "./forms/form_widgets/Input"
 import { ProfileButton } from "./shared/ProfileButton"
 import { ReturnButton } from "./shared/ReturnButton"
-import { CartButton } from "./shared/CartButton"
 import { useUser } from "@auth0/nextjs-auth0"
 import { Localization } from "./shared/Localization"
+import { Searcher } from "./shared/Searcher"
 import Link from "next/link"
 
-export const NavBar:React.FC<{
-    mode: "mainNav" | "shopNav" | "productNav" | "backNav"
-  }> = ({mode}) => {
+export const NavBar: React.FC<{
+  mode: "mainNav" | "shopNav" | "productNav" | "backNav"
+  href?: string
+}> = ({ mode, href }) => {
 
-  const {user} = useUser()
+  const { user } = useUser()
 
   let mainNav = false
   let shopNav = false
   let productNav = false
   let backNav = false
-  
-  switch (mode){
+
+  switch (mode) {
     case "mainNav":
       mainNav = true
       break
@@ -33,43 +34,43 @@ export const NavBar:React.FC<{
       break
   }
 
-  return(
+  return (
     <nav>
 
       {mainNav && (
         <>
           <div tw="absolute flex justify-between mt-8 w-10/12">
             <ProfileButton />
-            <Localization/>
+            <Localization />
           </div>
         </>
       )}
 
       {shopNav && !user && (
         <>
-          <div tw="absolute flex justify-between mt-8 w-10/12">
-            <ReturnButton />
-            <input tw="h-[36px] w-[190px] bg-gray-200" placeholder="Buscador"/>
+          <div tw="absolute flex justify-between items-center mt-8 w-10/12">
+            <ReturnButton href={href} />
+            <Searcher />
           </div>
-  
+
         </>
       )}
 
       {shopNav && user && (
         <>
-          <div tw="absolute flex justify-between mt-8 w-10/12">
-            <ReturnButton />
-            <input tw="h-[36px] w-[190px] bg-gray-200" placeholder="Buscador"/>
+          <div tw="absolute flex justify-between items-center  mt-8 w-10/12">
+            <ReturnButton href={href} />
+            <Searcher />
             {/* <CartButton /> */}
           </div>
-  
+
         </>
-      )}  
+      )}
 
       {productNav && !user && (
         <>
           <div tw="absolute flex mt-8 w-10/12">
-            <ReturnButton />
+            <ReturnButton href={href} />
           </div>
         </>
       )}
@@ -77,7 +78,7 @@ export const NavBar:React.FC<{
       {productNav && user && (
         <>
           <div tw="absolute flex mt-8 w-10/12">
-            <ReturnButton />
+            <ReturnButton href={href} />
             {/* <CartButton /> */}
           </div>
         </>
@@ -85,7 +86,7 @@ export const NavBar:React.FC<{
 
       {backNav && (
         <div tw="absolute mt-8">
-          <ReturnButton />
+          <ReturnButton href={href} />
         </div>
       )}
 

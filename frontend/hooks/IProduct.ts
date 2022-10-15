@@ -3,7 +3,7 @@ export interface Product {
   name: string;
   quantity: string;
   price: string;
-  expiration: string;
+  unit: string;
   description?: string;
   user_id?: string;
 }
