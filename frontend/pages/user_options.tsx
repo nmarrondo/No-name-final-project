@@ -5,19 +5,25 @@ import { NavBar } from "../components/NavBar";
 import { UserSectionTitle } from "../components/shared/text";
 import { UserSectionBody } from "../components/user-section/UserSectionBody";
 import { UserSectionLine } from "../components/user-section/UserSectionLine";
+import { User } from "../hooks/IUser"
+import useSWR from "swr"
 
 const Page = () => {
 
-  const {user} = useUser()
+  const { user } = useUser()
 
-  return(
-  <>
-    <UserSectionBody>
-        <NavBar mode="backNav" /> 
-        <UserSectionTitle>¡Hola, {user.name}!</UserSectionTitle>
-    </UserSectionBody>
+  const { data: userProfile } = useSWR<User>(user?.sub ? `/users/id/${encodeURIComponent(user?.sub)}` : null, { refreshInterval: 5000 })
 
-    <div tw="h-full">
+  console.log(userProfile)
+
+  return (
+    <>
+      <UserSectionBody>
+        <NavBar mode="backNav" />
+        <UserSectionTitle>¡Hola, {userProfile?.name}!</UserSectionTitle>
+      </UserSectionBody>
+
+      <div tw="h-full">
         <div tw="flex flex-col gap-2 py-[30px] w-10/12 mx-auto">
           <UserSectionButton href="/user_options/user">Información de usuario</UserSectionButton>
           <UserSectionButton href="">Información de pedidos</UserSectionButton>
@@ -31,9 +37,9 @@ const Page = () => {
         <div tw="w-10/12 mt-[30px] flex justify-end mx-auto">
           <p tw="text-sm text-dark-400">v.prealpha</p>
         </div>
-    </div>
+      </div>
 
-  </>
+    </>
   )
 }
 

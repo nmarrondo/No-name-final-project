@@ -5,7 +5,7 @@ import { RegisterProduct } from "../../components/forms/RegisterProductForms/Reg
 const Page = () => {
 
   return (
-    <div tw="h-full flex flex-col mx-auto w-10/12 overflow-hidden">
+    <div tw="h-full flex flex-col mx-auto w-10/12">
       <div>
         <NavBar mode="backNav" />
       </div>

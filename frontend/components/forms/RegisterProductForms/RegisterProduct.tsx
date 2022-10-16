@@ -8,19 +8,35 @@ import { useProduct } from "../../../hooks/useProduct";
 import { TextArea } from "../form_widgets/TextArea";
 import { useRouter } from "next/router";
 import { useUser } from "@auth0/nextjs-auth0";
-
+import { motion } from "framer-motion";
 
 const ToggleMassUnit: React.FC<{
   onClick: () => void
   unit: string
-}> = ({ onClick, unit }) => {
+  value: string
+}> = ({ onClick, unit, value }) => {
+
   return (
     <button
-      tw="bg-gray-200 h-[40px] w-[40px] bg-brand-300 text-white text-[18px] font-medium hover:bg-brand-400 rounded"
+      css={[
+        unit == 'kg' && tw`h-[40px] w-[40px] bg-brand-300 text-white text-[18px] font-medium hover:bg-brand-400 rounded transition-all rotate-0`,
+        unit == 'g' && tw`h-[40px] w-[40px] bg-brand-300 text-white text-[18px] font-medium hover:bg-brand-400 transition-all rounded rotate-90`,
+        unit == 'Ud' && tw`h-[40px] w-[40px] bg-brand-300 text-white text-[18px] font-medium hover:bg-brand-400 transition-all rounded rotate-180`
+      ]}
       onClick={onClick}
-    >{unit}</button>
+    >
+      <p
+        css={[
+          unit == 'kg' && tw`rotate-0`,
+          unit == 'g' && tw`rotate-[-90deg]`,
+          unit == 'Ud' && tw`rotate-180`
+        ]}>
+        {unit}
+      </p>
+    </button>
   )
 }
+
 
 export const RegisterProduct = () => {
 
@@ -74,7 +90,7 @@ export const RegisterProduct = () => {
           <div tw="flex justify-between gap-4">
             <div tw="w-6/12">
               <Input
-                type="text"
+                type="number"
                 label="Cantidad"
                 error={formState.errors.quantity?.message.toString()}
                 {...methods.register("quantity", {
@@ -85,7 +101,7 @@ export const RegisterProduct = () => {
             <div tw="w-6/12 flex justify-between">
               <div tw="w-7/12">
                 <Input
-                  type="text"
+                  type="number"
                   label="Precio"
                   error={formState.errors.price?.message.toString()}
                   {...methods.register("price", {
@@ -94,8 +110,12 @@ export const RegisterProduct = () => {
                 />
               </div>
               <ToggleMassUnit
+                value={mass}
                 unit={mass}
                 onClick={() => toggleMass()}
+                {...methods.register("unit", {
+                  required: true,
+                })}
               />
             </div>
           </div>
@@ -121,3 +141,28 @@ export const RegisterProduct = () => {
     </>
   )
 }
+
+// const ToggleMassUnit: React.FC<{
+//   onClick: () => void
+//   unit: string
+// }> = ({ onClick, unit }) => {
+//   return (
+//     <button
+//       css={[
+//         unit == 'kg' && tw`h-[40px] w-[40px] bg-brand-300 text-white text-[18px] font-medium hover:bg-brand-400 rounded transition-all rotate-0`,
+//         unit == 'g' && tw`h-[40px] w-[40px] bg-brand-300 text-white text-[18px] font-medium hover:bg-brand-400 transition-all rounded rotate-90`,
+//         unit == 'Ud' && tw`h-[40px] w-[40px] bg-brand-300 text-white text-[18px] font-medium hover:bg-brand-400 transition-all rounded rotate-180`
+//       ]}
+//       onClick={onClick}
+//     >
+//       <p
+//         css={[
+//           unit == 'kg' && tw`rotate-0`,
+//           unit == 'g' && tw`rotate-[-90deg]`,
+//           unit == 'Ud' && tw`rotate-180`
+//         ]}>
+//         {unit}
+//       </p>
+//     </button>
+//   )
+// }

@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div tw="h-full flex flex-col mx-auto w-10/12 overflow-hidden">
       <div>
-        <NavBar mode="backNav" />
+        <NavBar href="/" mode="backNav" />
       </div>
 
       <div tw="h-full flex items-center">

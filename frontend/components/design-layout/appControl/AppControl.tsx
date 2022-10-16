@@ -13,11 +13,11 @@ export const AppControl = () => {
         <AppControlItem href="/product_upload">Button3</AppControlItem>
       </nav> */}
       {user && (
-        <div><p>User logged: {user.name}</p></div>
-      )}  
+        <div><p tw="text-brand-100">User logged: {user.name}</p></div>
+      )}
       {!user && (
-        <div><p>No user logged</p></div>
-      )}  
+        <div><p tw="text-brand-100">No user logged</p></div>
+      )}
     </div>
 
   )
