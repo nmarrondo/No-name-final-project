@@ -26,6 +26,7 @@
 
 Programar una APP que facilite el comercio de proximidad, creando una plataforma que ponga en contacto al cliente con pequeños y medianos productores.
 
+<img width="1085" alt="Captura de Pantalla 2022-10-17 a las 17 34 28" src="https://user-images.githubusercontent.com/106661554/196223082-45394ee0-23e2-48ed-953a-8329e58b30f1.png">
 
 ## Resumen del desarrollo
 
