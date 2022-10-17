@@ -11,9 +11,10 @@ export default function Home() {
 
   const { user } = useUser()
 
-  const { data: userProfile } = useSWR<User>(user?.sub ? `/users/id/${encodeURIComponent(user?.sub)}` : null, { refreshInterval: 5000 })
-
-  console.log(userProfile)
+  const { data: userProfile } = useSWR<User>(
+    user?.sub ? `/users/id/${encodeURIComponent(user?.sub)}` : null, {
+    refreshInterval: 5000
+  })
 
   return (
     <Body>
@@ -39,9 +40,6 @@ export default function Home() {
             <div tw="flex flex-col gap-4 z-10">
               <Button href="/register_user">Completa tu perfil</Button>
             </div>
-            {/* <div tw="z-0 h-[160px] w-[160px] mt-[360px] ml-[80px] absolute rounded-full">
-
-            </div> */}
           </div>
         </>
       )}
@@ -57,9 +55,6 @@ export default function Home() {
               <Button href="/shop">Comprar</Button>
               <Button href="/register_product">Vender</Button>
             </div>
-            {/* <div tw="z-0 h-[160px] w-[160px] mt-[360px] ml-[80px] absolute opacity-95">
-
-            </div> */}
           </div>
         </>
       )}

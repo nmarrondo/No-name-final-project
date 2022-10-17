@@ -4,9 +4,27 @@
 
 ## Tecnologías empleadas
 
+<<<<<<< HEAD
 ![image](https://img.shields.io/badge/Javascript-3.7%-fcee21) ![image](https://img.shields.io/badge/Typescript-96.3%-00a5d8) ![image](https://img.shields.io/badge/Yarn-front-009912)
 ![image](https://img.shields.io/badge/React-front-00eded) ![image](https://img.shields.io/badge/Next-front-1c2121) ![image](https://img.shields.io/badge/Aut0-front-2f17aa) ![image](https://img.shields.io/badge/Tailwind-front-1c2121) ![image](https://img.shields.io/badge/Axios-front-123ee0) ![image](https://img.shields.io/badge/swr-front-ea9600)
 ![image](https://img.shields.io/badge/Fastify-back-fcee21) ![image](https://img.shields.io/badge/Mongoose-back-319905)
+=======
+global - //Javascript //typescript //Yarn
+frontend - //React //Next //Aut0 //tailwind //Axios //swr
+backend - //Fastify //Mongoose
+![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E
+)
+![image]({https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white
+})
+![image]({BadgeURLHere})
+![image]({BadgeURLHere})
+![image]({BadgeURLHere})
+![image]({BadgeURLHere})
+![image]({BadgeURLHere})
+![image]({BadgeURLHere})
+![image](https://img.shields.io/badge/javascript-right-f39f37)
+
+>>>>>>> af7c84f84df442ca704867996d85d350a14e7574
 
 ## Concepto
 
