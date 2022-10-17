@@ -46,7 +46,7 @@ Actualmente el proyecto se encuentra en el punto 4 de la Fase 1.
 
 ## Ejemplos de código
 
-    ```
+`
 
 {
 "firstName": "John",
@@ -54,7 +54,7 @@ Actualmente el proyecto se encuentra en el punto 4 de la Fase 1.
 "age": 25
 }
 
-```
+`
 
 ## Conclusiones
 
@@ -64,5 +64,8 @@ Actualmente el proyecto se encuentra en el punto 4 de la Fase 1.
 
 En primer lugar, a mis profesores Lusimi y Marc, pues sin su conocimiento y motivación no habría llegado hasta quí.
 A mi compañero de clase Sergio, porque verlo siempre un paso por delante era motivación para intentar ir un paso mas allá.
-Y por supuesto a mdn web docs_ por estar siempre ahí
+Y por supuesto a mdn web docs\_ por estar siempre ahí
+
+```
+
 ```
