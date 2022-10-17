@@ -1,23 +1,31 @@
-# The-good-shop WIP
+# The-good-shop [WIP]
 
 ## Tabla de contenidos
 
-1. Concepto
-2. Resumen del desarrollo
-3. Estructura del proyecto
-4. Ejemplos de código
-5. Conclusiones
-6. Agradecimientos
+[1. Concepto](https://github.com/nmarrondo/The-good-shop/edit/main/README.md#concepto)
+
+[2. Resumen del desarrollo](https://github.com/nmarrondo/The-good-shop/edit/main/README.md#resumen-del-desarrollo)
+
+[3. Estructura de proyecto](https://github.com/nmarrondo/The-good-shop/edit/main/README.md#estructura-del-proyecto)
+
+[4. Ejemplos de código](https://github.com/nmarrondo/The-good-shop/edit/main/README.md#ejemplos-de-c%C3%B3digo)
+
+[5. Conclusiones](https://github.com/nmarrondo/The-good-shop/edit/main/README.md#conclusiones)
+
+[6. Agradecimientos](https://github.com/nmarrondo/The-good-shop/edit/main/README.md#agradecimientos)
+
 
 ## Tecnologías empleadas
 
-![image](https://img.shields.io/badge/Global-Javascript-fcee21) ![image](https://img.shields.io/badge/Global-Typescript-00a5d8) ![image](https://img.shields.io/badge/Yarn-front-009912)
-![image](https://img.shields.io/badge/React-front-00eded) ![image](https://img.shields.io/badge/Next-front-1c2121) ![image](https://img.shields.io/badge/Aut0-front-2f17aa) ![image](https://img.shields.io/badge/Tailwind-front-1c2121) ![image](https://img.shields.io/badge/Axios-front-123ee0) ![image](https://img.shields.io/badge/swr-front-ea9600)
-![image](https://img.shields.io/badge/Fastify-back-fcee21) ![image](https://img.shields.io/badge/Mongoose-back-319905)
+![image](https://img.shields.io/badge/global-Javascript-fcee21) ![image](https://img.shields.io/badge/global-Typescript-00a5d8) ![image](https://img.shields.io/badge/global-Yarn-009912)
+![image](https://img.shields.io/badge/back-Fastify-fcee21) ![image](https://img.shields.io/badge/back-MongoDB-319905)
+![image](https://img.shields.io/badge/front-React-00eded) ![image](https://img.shields.io/badge/front-Next-1c2121) ![image](https://img.shields.io/badge/Aut0-front-2f17aa) ![image](https://img.shields.io/badge/front-Axios-123ee0) ![image](https://img.shields.io/badge/front-SWR-ea9600) ![image](https://img.shields.io/badge/front-Tailwind-ab24ba)
+
 
 ## Concepto
 
 Programar una APP que facilite el comercio de proximidad, creando una plataforma que ponga en contacto al cliente con pequeños y medianos productores.
+
 
 ## Resumen del desarrollo
 
@@ -25,7 +33,7 @@ Crear un CRUD que permita subir y editar datos (productos) desde un perfil produ
 
 El proyecto consta de dos fases principales.
 
-### Fase 1.
+**Fase 1**
 
 Crear una plataforma donde se ponga en contacto agricultores y clientes, para ello:
 
@@ -36,18 +44,19 @@ Crear una plataforma donde se ponga en contacto agricultores y clientes, para el
 5. Conectar con una API de geolocalización, de forma que los productos se muestren por cercanía.
 6. Subir imágenes a la DB.
 
-### Fase 2.
+**Fase 2**
 
 Desarrollar un sistema de pago a través de la app:
 
 1. Ampliar modelos e interfaces para aceptar nuevos terminos como: "stock", "orders"..., necesarios para una gestión eficiente.
 2. Implementar un sistema de pagos funcional a través de Stripe
 
-### Fase3.
+**Fase3**
 
 Continuar trabajando en funcionalidades adicionales.
 
 Actualmente el proyecto se encuentra en el punto 4 de la Fase 1.
+
 
 ## Estructura del proyecto
 
@@ -91,13 +100,15 @@ Para evitar llamar a un valor indefinido y provocar un error, los valores se lla
   })
 ```
 
+
 ## Conclusiones
 
-Éste proyecto ha supuesto tanto un reto como un choque de realidad. En primer lugar me ha servido para terminar de familiarizarme con las Bases de datos y su estructura. Por otro lado para investigar y desarrollar componentes atractivos y funcionales a partes iguales. Por otro lado, y una lección, cuando piensas incluir Auth0 a tu desarrollo, no designer ninguno de tus elementos principales como "user"
+Éste proyecto ha supuesto un gran reto. En primer lugar me ha servido para terminar de familiarizarme con Bases de datos, promesas y su estructura. Por otro lado para investigar y desarrollar componentes atractivos y funcionales a partes iguales. Y por último, y una lección, cuando piensas incluir Auth0 a tu desarrollo, no designes ninguno de tus elementos principales como "user"
+
 
 ## Agradecimientos
 
-En primer lugar, a mis profesores Lusimi y Marc, pues sin su conocimiento y motivación no habría llegado hasta quí.
+En primer lugar, a mis profesores Lusimi y Marc, pues sin su conocimiento y motivación no habría llegado hasta aquí.
 A mi compañero de clase Sergio, porque verlo siempre un paso por delante era motivación para intentar ir un paso mas allá.
 Y por supuesto a mdn web docs_ por estar siempre ahí
 
