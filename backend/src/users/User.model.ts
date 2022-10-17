@@ -1,35 +1,43 @@
 import { model, Schema, Document } from "mongoose";
 
-interface UserDocument extends Document {
+export interface UserDocument extends Document {
 
-  // shared props
+  role: "client" | "producer";
+
   name: string;
-  mail: string;
-  client: boolean;
-  telephone: string;
-  creditCard: string; // save as ********0987 
-  location: string;
-  orders: string[]; // push the carts info
+  mail?: string;
 
-  // producres specific props
-  ca: string;
-  numberEA: string;
-  description: string;
+  ca?: string;
+
+  telephone: string;
+  numberEA?: string;
+
+  description?: string;
+
+  orders?: string[]; // push the carts info
+  user_id: string;
 
 }
 
-const schema = new Schema ({
+const schema = new Schema({
 
-  name: { type:String, required:true },
-  mail: { type:String, required:true },
-  telephone: { type:String, required:true },
-  creditCard: { type:String }, 
-  location: { type:String },
-  orders: [{ type:String }], 
-  ca: { type:String, required:true },
-  numberEA: { type:String, required:true },
-  description: {type:String}
+  role: { type: String, required: true },
 
-}, {timestamps: true})
+  name: { type: String, required: true },
+  mail: { type: String },
+
+  ca: { type: String },
+
+  telephone: { type: String, required: true },
+  numberEA: { type: String },
+
+  description: { type: String },
+
+  orders: [{ type: String }],
+  user_id: { type: String },
+
+
+
+}, { timestamps: true })
 
 export const UserModel = model<UserDocument>("user", schema)
