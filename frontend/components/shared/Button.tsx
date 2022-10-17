@@ -23,7 +23,7 @@ export const Button: React.FC<{
               css={[
                 tw`h-[42px] w-full bg-brand-300 text-white font-medium hover:bg-brand-400 rounded`,
                 variant == "white" && tw`bg-white text-gray-800`,
-                variant == "delete" && tw`bg-red-200 text-red-800`,
+                variant == "delete" && tw`bg-white text-red-800`,
                 disabled && tw`bg-brand-200 hover:bg-brand-200 cursor-auto`
               ]}
               style={{
@@ -41,7 +41,7 @@ export const Button: React.FC<{
             css={[
               tw`h-[42px] w-full bg-brand-300 text-white font-medium hover:bg-brand-400 rounded`,
               variant == "white" && tw`bg-white text-gray-800`,
-              variant == "delete" && tw`bg-red-200 text-red-800`,
+              variant == "delete" && tw`bg-transparent text-left h-[20px] text-red-400 hover:text-red-600 hover:bg-transparent`,
               disabled && tw`bg-brand-200 hover:bg-brand-200 cursor-auto`
             ]}
             style={{
