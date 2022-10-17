@@ -7,8 +7,8 @@
 global - //Javascript //typescript //Yarn
 frontend - //React //Next //Aut0 //tailwind //Axios //swr
 backend - //Fastify //Mongoose
-![image]({https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E
-})
+![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E
+)
 ![image]({https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white
 })
 ![image]({BadgeURLHere})
