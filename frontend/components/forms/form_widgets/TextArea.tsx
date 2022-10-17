@@ -3,7 +3,7 @@ import React from "react";
 
 
 export const TextArea = React.forwardRef<
-  HTMLInputElement,
+  HTMLTextAreaElement,
   {
     name: string
     label: string
