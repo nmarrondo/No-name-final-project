@@ -17,7 +17,7 @@ backend - //Fastify //Mongoose
 ![image]({BadgeURLHere})
 ![image]({BadgeURLHere})
 ![image]({BadgeURLHere})
-![image]([{BadgeURLHere}](https://img.shields.io/badge/javascript-right-f39f37)))
+![image](https://img.shields.io/badge/javascript-right-f39f37)
 
 
 ## Concepto
